@@ -314,3 +314,6 @@ C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\13_PMD\SAT\SAT.U
 C:\Users\andre\OneDrive\Desktop\Centriq\13_PMD\SAT\SAT.UI.MVC\bin\SAT.DATA.EF.dll
 C:\Users\andre\OneDrive\Desktop\Centriq\13_PMD\SAT\SAT.UI.MVC\bin\SAT.DATA.EF.pdb
 C:\Users\andre\OneDrive\Desktop\Centriq\13_PMD\SAT\SAT.UI.MVC\bin\SAT.DATA.EF.dll.config
+C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\13_PMD\SAT\SAT.UI.MVC\bin\SAT.DATA.EF.dll
+C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\13_PMD\SAT\SAT.UI.MVC\bin\SAT.DATA.EF.pdb
+C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\13_PMD\SAT\SAT.UI.MVC\bin\SAT.DATA.EF.dll.config
