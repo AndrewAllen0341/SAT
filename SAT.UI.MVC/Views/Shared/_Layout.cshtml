@@ -13,10 +13,13 @@
     <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Additional CSS Files -->
     <script src="https://kit.fontawesome.com/41ee268063.js" crossorigin="anonymous"></script>
+
     @*<link rel="stylesheet" href="~/Content/css/fontawesome.css">*@
     <link rel="stylesheet" href="~/Content/css/templatemo-grad-school.css">
     <link rel="stylesheet" href="~/Content/css/owl.css">
     <link rel="stylesheet" href="~/Content/css/lightbox.css">
+    <link rel="stylesheet" href="~/Content/css/flex-slider.css" />
+    <link rel="stylesheet" href="~/Content/css/CustomStyle.css" />
     <!--
 
     TemplateMo 557 Grad School
@@ -27,19 +30,29 @@
 </head>
 <body>
     <!--header-->
-    <header class="main-header clearfix" role="header">
+    <header class="main-header clearfix">
         <div class="logo">
             <a href="#"><em>KC</em> Culinary Academy</a>
         </div>
         <a href="#menu" class="menu-link"><i class="fa fa-chevron-down"></i></a>
         <nav id="menu" class="main-nav" role="navigation">
             <ul class="main-menu">
-                <li><a href="#section1">Home</a></li>
-                <li><a href="#section2">About</a></li>
-                <li><a href="#section4">Courses</a></li>
-                <!-- <li><a href="#section5">Video</a></li> -->
+                <li><a href=@Url.Action("Index", "Home")>Home</a></li>
+                <li><a href=@Url.Action("Index", "Courses")>Courses</a></li>
                 <li><a href=@Url.Action("Contact", "Home")>Contact</a></li>
-                <li><a href="#">Admin</a></li>
+                <li class="has-submenu">
+                    <a href="#">Admin</a>
+                    <ul class="sub-menu">
+                        @*<li><a href=@Url.Action("Login", "Account")>Login</a></li>*@
+                        @if (User.IsInRole("Scheduling") || User.IsInRole("Admin"))
+                        {
+                            <li><a href=@Url.Action("Index", "Students")>Students</a></li>
+                            <li><a href=@Url.Action("Index", "Courses")>Courses</a></li>
+                            <li><a href=@Url.Action("Index", "ScheduledClasses")>Schedule</a></li>
+                        }
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -55,7 +68,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <p>
-                        <i class="fa fa-copyright"></i> Copyright 2020
+                        <i class="fa fa-copyright"></i> Copyright 2022
 
                         | Design: <a href="http://abbey-outain.com" target="_blank">Abbey Outain</a> and <a href="http://double-a-dev.com" target="_blank">Andrew Allen</a><br>
                         Distributed By: <a href="https://themewagon.com" rel="sponsored" target="_blank">ThemeWagon</a>
@@ -77,55 +90,6 @@
     <script src="~/Content/js/video.js"></script>
     <script src="~/Content/js/slick-slider.js"></script>
     <script src="~/Content/js/custom.js"></script>
-    <script>
-        //according to loftblog tut
-        $('.nav li:first').addClass('active');
 
-        var showSection = function showSection(section, isAnimate) {
-            var
-                direction = section.replace(/#/, ''),
-                reqSection = $('.section').filter('[data-section="' + direction + '"]'),
-                reqSectionPos = reqSection.offset().top - 0;
-
-            if (isAnimate) {
-                $('body, html').animate({
-                    scrollTop: reqSectionPos
-                },
-                    800);
-            } else {
-                $('body, html').scrollTop(reqSectionPos);
-            }
-
-        };
-
-        var checkSection = function checkSection() {
-            $('.section').each(function () {
-                var
-                    $this = $(this),
-                    topEdge = $this.offset().top - 80,
-                    bottomEdge = topEdge + $this.height(),
-                    wScroll = $(window).scrollTop();
-                if (topEdge < wScroll && bottomEdge > wScroll) {
-                    var
-                        currentId = $this.data('section'),
-                        reqLink = $('a').filter('[href*=\\#' + currentId + ']');
-                    reqLink.closest('li').addClass('active').
-                        siblings().removeClass('active');
-                }
-            });
-        };
-
-        $('.main-menu, .scroll-to-section').on('click', 'a', function (e) {
-            if ($(e.target).hasClass('external')) {
-                return;
-            }
-            e.preventDefault();
-            $('#menu').removeClass('active');
-            showSection($(this).attr('href'), true);
-        });
-
-        $(window).scroll(function () {
-            checkSection();
-        });</script>
 </body>
 </html>
