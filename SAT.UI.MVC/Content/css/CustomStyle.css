@@ -1,0 +1,17 @@
+﻿div.form-horizontal {
+    color: white;
+    font-size: 13px;
+    line-height: 22px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input.btn.btn-default{
+    color: white;
+    background-color: #f5a425;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
