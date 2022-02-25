@@ -8,7 +8,7 @@
                 <div class="section-heading">
                     </br>
                     </br>
-                    <h2>Our Courses</h2>
+                    <h2>Students</h2>
                     </br>
                     </br>
                 </div>
@@ -16,7 +16,9 @@
 
             @if (User.IsInRole("Admin"))
             {
-                <div class="main-button"><a href=@Url.Action("Create New", "Create")>Create New</a></div>
+            <div class="main-button">
+                @Html.ActionLink("Create New", "Create")
+            </div>
             }
             <table class="table">
                 <tr>
