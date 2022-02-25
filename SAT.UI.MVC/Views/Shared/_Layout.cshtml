@@ -43,10 +43,14 @@
                 <li class="has-submenu">
                     <a href="#">Admin</a>
                     <ul class="sub-menu">
-                        <li><a href=@Url.Action("Index", "Students")>Students</a></li>
-                        <li><a href=@Url.Action("Index", "Courses")>Courses</a></li>
-                        <li><a href=@Url.Action("Index", "ScheduledClasses")>Schedule</a></li>
-                        <li><a href=@Url.Action("Login", "Account")>Login</a></li>
+                        @*<li><a href=@Url.Action("Login", "Account")>Login</a></li>*@
+                        @if (User.IsInRole("Scheduling") || User.IsInRole("Admin"))
+                        {
+                            <li><a href=@Url.Action("Index", "Students")>Students</a></li>
+                            <li><a href=@Url.Action("Index", "Courses")>Courses</a></li>
+                            <li><a href=@Url.Action("Index", "ScheduledClasses")>Schedule</a></li>
+                        }
+                        @Html.Partial("_LoginPartial")
                     </ul>
                 </li>
             </ul>
@@ -64,7 +68,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <p>
-                        <i class="fa fa-copyright"></i> Copyright 2020
+                        <i class="fa fa-copyright"></i> Copyright 2022
 
                         | Design: <a href="http://abbey-outain.com" target="_blank">Abbey Outain</a> and <a href="http://double-a-dev.com" target="_blank">Andrew Allen</a><br>
                         Distributed By: <a href="https://themewagon.com" rel="sponsored" target="_blank">ThemeWagon</a>
