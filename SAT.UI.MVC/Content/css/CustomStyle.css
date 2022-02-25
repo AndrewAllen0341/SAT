@@ -15,13 +15,15 @@ input.btn.btn-default{
     font-family: 'Montserrat', sans-serif;
 }
 
-tbody{
-    color:white;
+tbody {
+    color: white;
 }
-tbody th{
-    color: #f5a425;
-}
-tbody a{
-    color:white;
-    font-weight: 700;
-}
+
+    tbody th {
+        color: #f5a425;
+    }
+
+    tbody a {
+        color: white;
+        font-weight: 700;
+    }
