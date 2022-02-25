@@ -38,7 +38,10 @@
         <nav id="menu" class="main-nav" role="navigation">
             <ul class="main-menu">
                 <li><a href=@Url.Action("Index", "Home")>Home</a></li>
-                <li><a href=@Url.Action("Index", "Courses")>Courses</a></li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li><a href=@Url.Action("Index", "Courses")>Courses</a></li>
+                }
                 <li><a href=@Url.Action("Contact", "Home")>Contact</a></li>
                 <li class="has-submenu">
                     <a href="#">Admin</a>
@@ -46,8 +49,8 @@
                         @*<li><a href=@Url.Action("Login", "Account")>Login</a></li>*@
                         @if (User.IsInRole("Scheduling") || User.IsInRole("Admin"))
                         {
+                            <li><a href=@Url.Action("Index", "Enrollments")>Enrollment</a></li>
                             <li><a href=@Url.Action("Index", "Students")>Students</a></li>
-                            <li><a href=@Url.Action("Index", "Courses")>Courses</a></li>
                             <li><a href=@Url.Action("Index", "ScheduledClasses")>Schedule</a></li>
                         }
                         @Html.Partial("_LoginPartial")
